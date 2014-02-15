@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>firebase</title>
+        <script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+    </head>
+
+    <body>
+        <h2>Javascript Firebase</h2>
+        <script type="text/javascript">
+            function MyCon($scope, $firebase) {
+                var dataRef = new Firebase("https://blinding-fire-1835.firebaseio.com/people");
+                $scope.people = $firebase(dataRef);
+                $scope.addPerson = function() {
+                    $scope.people.$add($scope.newPerson);
+                    dataRef.update({name: 'Yanun', age: 26});
+                    $scope.newPerson = "";
+                };
+            };
+        </script>
+        <div ng-controller="MyCon">
+            <ul ng-repeat="person in people">
+                <li></li>
+            </ul>
+            <input type="text" ng-model="newPerson"/>
+            <button type="submit" ng-click="addPerson()">Add New Person</button>
+        </div>
+    </body>
+</html>

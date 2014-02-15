@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Book</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <script type="text/javascript" src="angular.min.js"></script>
+        <script type="text/javascript" src="book.js"></script>
+    </head>
+    <body ng-app="">
+        <div ng-controller="buku">
+            <div>
+                <ul ng-repeat="b in book">
+                    <li>Kode : {{b.kode}}</li>
+                    <li>Judul : {{b.judul}}</li>
+                    <li>Penulis : {{b.penulis}}</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
